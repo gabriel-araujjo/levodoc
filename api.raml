@@ -1,0 +1,62 @@
+#%RAML 1.0
+title: Levo API
+version: 1.0.0
+baseUri: https://epturc-levo.herokuapp.com
+mediaType: application/json
+
+types:
+  user: !include types/user.raml
+  driver: !include types/driver.raml
+  vehicle: !include types/vehicle.raml
+  location: !include types/location.raml
+
+resourceTypes: 
+  collection: !include resourceTypes/collection.raml
+  collectionItem: !include resourceTypes/collectionItem.raml
+
+/api/v1:
+  description: API version 1
+  /users:
+    type: 
+      collection: 
+        typeName: user
+        postExample: {name: "Stênio Garcia"}
+    /{id}:
+      uriParameters:
+        id:
+          description: The id of the user
+      type: 
+        collectionItem:
+          typeName: user
+          patchExample: {name: "Antônio Fagundes"}
+  /drivers:
+    type:
+      collection:
+        typeName: driver
+        postExample: {user_id: 6}
+    /{id}:
+      uriParameters:
+        id:
+          description: The id of the driver
+      type: 
+        collectionItem:
+          typeName: driver
+          patchExample: {user_id: 7}
+  /vehicles:
+    type:
+      collection:
+        typeName: vehicle
+        postExample: {company_id: "Horch-01"}
+    /{id}:
+      uriParameters:
+        id:
+          description: The id of the vehicle
+      type:
+        collectionItem:
+          typeName: vehicle
+          patchExample: {company-id: "Bash"}
+      /locations:
+        type:
+          collection:
+            typeName: location
+            postExample: {latitude: -5.8320965, longitude: -35.205357}

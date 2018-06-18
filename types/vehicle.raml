@@ -1,0 +1,17 @@
+#%RAML 1.0 DataType
+uses: 
+  shape: shape.raml
+
+type: object
+properties: 
+  id:
+    type: integer
+    format: int64
+  company_id:
+    type: integer
+    format: int64
+  driver_id:
+    type: integer
+    format: int64
+  last_location: 
+    type: !include location.raml

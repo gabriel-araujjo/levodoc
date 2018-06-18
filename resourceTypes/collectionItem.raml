@@ -1,0 +1,39 @@
+#%RAML 1.0 ResourceType
+usage: Use this resourceType to represent any single item
+description: A single <<typeName>>
+get:
+  description: Get a <<typeName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<typeName>>
+    404:
+put:
+  description: Update a <<typeName>> sending a full instance
+  body:
+    application/json:
+      type: <<typeName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<typeName>>
+    404:
+patch:
+  description: Update a <<typeName>> sending a json with the changes
+  body:
+    application/json:
+      type: object
+      example: <<patchExample>>
+  responses: 
+    200:
+      body: 
+        application/json:
+          type: <<typeName>>
+    404:
+delete:
+  description: Delete a <<typeName>>
+  responses:
+    204:
+    404:

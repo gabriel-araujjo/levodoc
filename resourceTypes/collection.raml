@@ -1,0 +1,22 @@
+#%RAML 1.0 ResourceType
+
+usage: Use this resourceType to represent any collection of items
+description: A collection of <<resourcePathName>>
+get:
+  description: Get all <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<typeName>>[]
+post:
+  description: Create a new <<resourcePathName|!singularize>>
+  body: 
+    application/json:
+      type: object
+      example: <<postExample>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<typeName>>

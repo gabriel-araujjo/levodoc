@@ -1,0 +1,14 @@
+#%RAML 1.0 DataType
+type: object
+description: A driver that deliver products
+properties: 
+  id: integer
+  user_id: integer
+  is_driving?:
+    description: An object with the driver's *vehicle id* and its *company id*, if he/she is driving one,
+    type: object
+    properties: 
+      id: integer
+      company_id:
+        type: string
+example: !include ../examples/driver-item.raml

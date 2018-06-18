@@ -1,0 +1,13 @@
+#%RAML 1.0 DataType
+description: A coordinate in earth using [WGS84 ellipsoid system](https://en.wikipedia.org/wiki/World_Geodetic_System)
+type: object
+properties: 
+  latitude:
+    description: A latitude in degrees. Positive means north and negative, south.
+    type: number
+    format: double
+  longitude:
+    description: The location's longitude in degrees. Negative numbers means west and positives, east
+    type: number
+    format: double
+  created_at: datetime
